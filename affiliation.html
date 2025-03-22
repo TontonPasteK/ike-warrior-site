@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Programme d'affiliation IKE WARRIOR</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px 0;
+      width: 100%;
+      font-size: 1rem;
+    }
+    .referral-link {
+      background: #e9e9e9;
+      padding: 10px;
+      border-radius: 4px;
+      margin-top: 10px;
+      word-break: break-all;
+    }
+    h1, h2, p {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Programme d'affiliation IKE WARRIOR</h1>
+    <p>Inscrivez-vous pour obtenir votre lien de parrainage unique et suivre vos parrainages.</p>
+    <input type="text" id="affiliateName" placeholder="Votre nom" />
+    <button id="registerButton">S'inscrire</button>
+    <div id="result" style="display:none;">
+      <h2>Votre lien de parrainage</h2>
+      <div class="referral-link" id="referralLink"></div>
+      <h2>Nombre de parrainages</h2>
+      <p id="referralCount">0</p>
+      <button id="refreshButton">Actualiser mes données</button>
+    </div>
+  </div>
+
+  <!-- Inclusion de la librairie Solana Web3.js depuis un CDN -->
+  <script src="https://unpkg.com/@solana/web3.js@1.70.0/lib/index.iife.js"></script>
+  <script>
+    // Simulation locale du système d'affiliation (à remplacer par une interaction réelle avec le smart contract)
+    const affiliates = {}; // Stocke les affiliés avec leur lien et le nombre de parrainages
+
+    // Fonction pour générer un lien unique (code aléatoire de 6 caractères)
+    function generateReferralLink(name) {
+      const uniqueCode = Math.random().toString(36).substring(2, 8);
+      return window.location.origin + '/?ref=' + uniqueCode;
+    }
+
+    // Enregistrement simulé d'un affilié
+    function registerAffiliate(name) {
+      const referralLink = generateReferralLink(name);
+      // Stockage dans notre simulation locale
+      affiliates[referralLink] = { name: name, referrals: 0 };
+      return referralLink;
+    }
+
+    // Récupération simulée du nombre de parrainages
+    function getReferralCount(referralLink) {
+      return affiliates[referralLink] ? affiliates[referralLink].referrals : 0;
+    }
+
+    // Gestion de l'inscription
+    document.getElementById('registerButton').addEventListener('click', function() {
+      const name = document.getElementById('affiliateName').value;
+      if (name.trim() === '') {
+        alert("Veuillez entrer votre nom.");
+        return;
+      }
+      const link = registerAffiliate(name);
+      document.getElementById('referralLink').innerText = link;
+      document.getElementById('referralCount').innerText = getReferralCount(link);
+      document.getElementById('result').style.display = 'block';
+    });
+
+    // Bouton pour actualiser le nombre de parrainages (simulation)
+    document.getElementById('refreshButton').addEventListener('click', function() {
+      const link = document.getElementById('referralLink').innerText;
+      document.getElementById('referralCount').innerText = getReferralCount(link);
+    });
+
+    // Exemple d'interaction avec Solana Web3.js (pour illustration)
+    async function exampleSolanaCall() {
+      // Connexion à Devnet de Solana
+      const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('devnet'), 'confirmed');
+      // Exemple : consulter le solde d'une adresse (à remplacer par l'appel de votre smart contract)
+      const publicKey = new solanaWeb3.PublicKey('VotreAdressePubliqueIci');
+      const balance = await connection.getBalance(publicKey);
+      console.log("Solana Balance: ", balance / solanaWeb3.LAMPORTS_PER_SOL, " SOL");
+    }
+    // Vous pouvez décommenter la ligne suivante pour tester l'interaction (assurez-vous d'avoir une adresse valide)
+    // exampleSolanaCall();
+  </script>
+</body>
+</html>
