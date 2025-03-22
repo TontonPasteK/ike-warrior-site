@@ -55,7 +55,7 @@
       padding: 5px;
       font-size: 16px;
     }
-    /* Bouton en haut pour l'affiliation */
+    /* Bouton en haut pour affiliation */
     .top-affiliation-btn {
       position: fixed;
       top: 10px;
@@ -110,7 +110,7 @@
       width: 80%;
       border-radius: 10px;
     }
-    /* Boutons */
+    /* Boutons généraux */
     .button {
       display: inline-block;
       padding: 15px 30px;
@@ -160,7 +160,7 @@
 <body>
 
   <!-- Bouton en haut pour accéder à la section affiliation -->
-  <a href="#affiliation" class="top-affiliation-btn">Devenez ambassadeur de la IkeArmy</a>
+  <a href="#affiliation" class="top-affiliation-btn" id="top-affiliation-btn">Devenez ambassadeur de la IkeArmy</a>
 
   <!-- Sélecteur de langue -->
   <div class="language-selector">
@@ -182,7 +182,6 @@
     <div class="section">
       <h2 id="whitepaper-title">📜 Whitepaper</h2>
       <p id="whitepaper-desc">Découvrez tous les détails de IKE WARRIOR et sa mission anti-scam.</p>
-      <!-- Le lien s'ouvre dans une nouvelle page -->
       <a href="whitepaper.html" class="button" id="btn-whitepaper" target="_blank">📄 Lire le Whitepaper</a>
     </div>
 
@@ -216,13 +215,14 @@
     
     <!-- Section Affiliation en bas de page -->
     <div class="affiliation-section" id="affiliation">
-      <h2>Devenez Ambassadeur IKE WARRIOR !</h2>
-      <p>Rejoignez notre programme d'affiliation et gagnez des récompenses en invitant au moins 10 nouveaux investisseurs à rejoindre l'aventure IKE WARRIOR.</p>
-      <a href="affiliation.html" class="button">Inscrivez-vous Maintenant</a>
+      <h2 id="affiliation-section-title">Devenez Ambassadeur IKE WARRIOR !</h2>
+      <p id="affiliation-section-desc">Rejoignez notre programme d'affiliation et gagnez des récompenses en invitant au moins 10 nouveaux investisseurs à rejoindre l'aventure IKE WARRIOR.</p>
+      <a href="affiliation.html" class="button" id="affiliation-section-btn">Inscrivez-vous Maintenant</a>
     </div>
   </div>
 
   <script>
+    // Objet de traductions mis à jour pour inclure les nouveaux textes d'affiliation
     const translations = {
       fr: {
         description: "Plus d'arnaques. Plus de rug-pulls.<br>Rejoignez l'Anti-Rug Army et aidez à nettoyer l'espace crypto !",
@@ -242,7 +242,11 @@
         "roadmap-phase1": "🚀 Phase 1 : Lancement & Fondation",
         "roadmap-phase2": "🔥 Phase 2 : Adoption & Expansion",
         "roadmap-phase3": "🏆 Phase 3 : Domination",
-        "video-title": "🎥 Vidéo de Présentation"
+        "video-title": "🎥 Vidéo de Présentation",
+        "top-affiliation-btn": "Devenez ambassadeur de la IkeArmy",
+        "affiliation-section-title": "Devenez Ambassadeur IKE WARRIOR !",
+        "affiliation-section-desc": "Rejoignez notre programme d'affiliation et gagnez des récompenses en invitant au moins 10 nouveaux investisseurs à rejoindre l'aventure IKE WARRIOR.",
+        "affiliation-section-btn": "Inscrivez-vous Maintenant"
       },
       en: {
         description: "No more scams. No more rug-pulls.<br>Join the Anti-Rug Army and help clean the crypto space!",
@@ -262,7 +266,11 @@
         "roadmap-phase1": "🚀 Phase 1: Launch & Foundation",
         "roadmap-phase2": "🔥 Phase 2: Adoption & Expansion",
         "roadmap-phase3": "🏆 Phase 3: Domination",
-        "video-title": "🎥 Presentation Video"
+        "video-title": "🎥 Presentation Video",
+        "top-affiliation-btn": "Become an ambassador of the IkeArmy",
+        "affiliation-section-title": "Become an IKE WARRIOR Ambassador!",
+        "affiliation-section-desc": "Join our affiliate program and earn rewards by inviting at least 10 new investors to join the IKE WARRIOR adventure.",
+        "affiliation-section-btn": "Sign Up Now"
       },
       es: {
         description: "No más estafas. No más rug-pulls.<br>Únete al Anti-Rug Army y ayuda a limpiar el espacio cripto!",
@@ -282,7 +290,11 @@
         "roadmap-phase1": "🚀 Fase 1: Lanzamiento y Fundación",
         "roadmap-phase2": "🔥 Fase 2: Adopción y Expansión",
         "roadmap-phase3": "🏆 Fase 3: Dominación",
-        "video-title": "🎥 Video de Presentación"
+        "video-title": "🎥 Video de Presentación",
+        "top-affiliation-btn": "Conviértete en embajador de la IkeArmy",
+        "affiliation-section-title": "¡Conviértete en Embajador de IKE WARRIOR!",
+        "affiliation-section-desc": "Únete a nuestro programa de afiliación y gana recompensas invitando a al menos 10 nuevos inversores a unirse a la aventura IKE WARRIOR.",
+        "affiliation-section-btn": "Regístrate Ahora"
       }
     };
 
@@ -305,21 +317,17 @@
       function updateCountdown() {
         const now = new Date().getTime();
         const distance = targetDate - now;
-        
         if (distance < 0) {
           countdownElement.innerHTML = "Lancé !";
           clearInterval(interval);
           return;
         }
-        
         const days = Math.floor(distance / (1000 * 60 * 60 * 24));
         const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
         countdownElement.innerHTML = days + "j " + hours + "h " + minutes + "m " + seconds + "s ";
       }
-      
       updateCountdown();
       const interval = setInterval(updateCountdown, 1000);
     }
@@ -332,4 +340,4 @@
   </script>
 
 </body>
-</html>
+</
