@@ -64,34 +64,27 @@
             background-color: #cc7700;
         }
         /* Titre futuriste */
-h1 {
-    font-size: 3.5rem;  /* Augmente la taille du texte */
-    color: #FFD700;
-    font-family: 'Orbitron', sans-serif;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9); /* Ombre portée plus marquée */
-    margin: 20px 0;
-    /* Optionnel : fond semi-transparent */
-    background-color: rgba(0, 0, 0, 0.3);
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 10px;
-}
-#description {
-    font-size: 1.8rem;  /* Légèrement plus grand */
-    font-weight: bold;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-    margin: 10px 0;
-    /* Optionnel : fond semi-transparent */
-    background-color: rgba(0, 0, 0, 0.3);
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 10px;
-}
+        h1 {
+            font-size: 3.5rem;
+            color: #FFD700;
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
+            margin: 20px 0;
+            background-color: rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
         /* Texte important */
         #description {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+            margin: 10px 0;
+            background-color: rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 10px;
         }
         /* Timer */
         #countdown {
@@ -125,12 +118,13 @@ h1 {
             width: 80%;
             margin: 0 auto;
             text-align: center;
-video {
-    width: 50%;
-    max-width: 600px; /* Par exemple, limite la largeur à 600px */
-    border-radius: 10px;
-    margin-top: 20px;
-}
+        }
+        video {
+            width: 100%;
+            max-width: 600px; /* Limite la largeur pour réduire la taille d'affichage */
+            border-radius: 10px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -162,13 +156,14 @@ video {
     <div class="section">
         <h2 id="tokenomics-title">💰 Tokenomics</h2>
         <p id="supply-total">Supply Total : <strong>1 Milliard $IKE</strong></p>
+        <!-- Vous pouvez ajouter une mention "Solana (SPL)" si vous le souhaitez -->
+        <!-- <p><strong>Blockchain : Solana (SPL)</strong></p> -->
         <p id="tokenomics-desc">Distribution :</p>
         <ul>
-            <li id="distribution-1">60% → Liquidity Pool (LP)</li>
-            <li id="distribution-2">20% → Réserve communautaire et marketing</li>
-            <li id="distribution-3">10% → Team & développement (Vesting 6 mois)</li>
-            <li id="distribution-4">5% → Airdrops & Récompenses</li>
-            <li id="distribution-5">5% → Partenariats & CEX Listings</li>
+            <li id="distribution-1">80% → Distribution initiale à la communauté (Airdrops, Staking)</li>
+            <li id="distribution-2">10% → Réserve développement futur & partenariats</li>
+            <li id="distribution-3">5% → Fonds de liquidité</li>
+            <li id="distribution-4">5% → Initiatives caritatives & campagnes de sensibilisation</li>
         </ul>
         <p id="taxes">Taxes sur Transactions : <strong>1% Burn, 0% Taxe</strong></p>
     </div>
@@ -180,10 +175,8 @@ video {
         <p id="roadmap-phase3">🏆 Phase 3 : Domination</p>
     </div>
 
-    <!-- SECTION VIDEO MODIFIÉE -->
     <div class="section video-container">
         <h2 id="video-title">🎥 Vidéo de Présentation</h2>
-        <!-- Assurez-vous que le fichier IkeWarrior.mp4 est bien au même niveau que index.html -->
         <video controls>
             <source src="IkeWarrior.mp4" type="video/mp4">
             Votre navigateur ne supporte pas la lecture de vidéos.
@@ -202,11 +195,10 @@ video {
             "tokenomics-title": "💰 Tokenomics",
             "supply-total": "Supply Total : <strong>1 Milliard $IKE</strong>",
             "tokenomics-desc": "Distribution :",
-            "distribution-1": "60% → Liquidity Pool (LP)",
-            "distribution-2": "20% → Réserve communautaire et marketing",
-            "distribution-3": "10% → Team & développement (Vesting 6 mois)",
-            "distribution-4": "5% → Airdrops & Récompenses",
-            "distribution-5": "5% → Partenariats & CEX Listings",
+            "distribution-1": "80% → Distribution initiale à la communauté (Airdrops, Staking)",
+            "distribution-2": "10% → Réserve développement futur & partenariats",
+            "distribution-3": "5% → Fonds de liquidité",
+            "distribution-4": "5% → Initiatives caritatives & campagnes de sensibilisation",
             "taxes": "Taxes sur Transactions : <strong>1% Burn, 0% Taxe</strong>",
             "roadmap-title": "📅 Roadmap",
             "roadmap-phase1": "🚀 Phase 1 : Lancement & Fondation",
@@ -223,11 +215,10 @@ video {
             "tokenomics-title": "💰 Tokenomics",
             "supply-total": "Total Supply: <strong>1 Billion $IKE</strong>",
             "tokenomics-desc": "Distribution:",
-            "distribution-1": "60% → Liquidity Pool (LP)",
-            "distribution-2": "20% → Community Reserve & Marketing",
-            "distribution-3": "10% → Team & Development (6-month vesting)",
-            "distribution-4": "5% → Airdrops & Rewards",
-            "distribution-5": "5% → Partnerships & CEX Listings",
+            "distribution-1": "80% → Initial distribution to the community (Airdrops, Staking)",
+            "distribution-2": "10% → Reserve for future development & partnerships",
+            "distribution-3": "5% → Liquidity fund",
+            "distribution-4": "5% → Charitable initiatives & awareness campaigns",
             "taxes": "Transaction Taxes: <strong>1% Burn, 0% Tax</strong>",
             "roadmap-title": "📅 Roadmap",
             "roadmap-phase1": "🚀 Phase 1: Launch & Foundation",
@@ -244,11 +235,10 @@ video {
             "tokenomics-title": "💰 Tokenomics",
             "supply-total": "Suministro Total: <strong>1 Billón $IKE</strong>",
             "tokenomics-desc": "Distribución:",
-            "distribution-1": "60% → Liquidity Pool (LP)",
-            "distribution-2": "20% → Reserva comunitaria y marketing",
-            "distribution-3": "10% → Equipo y desarrollo (periodo de consolidación de 6 meses)",
-            "distribution-4": "5% → Airdrops & Recompensas",
-            "distribution-5": "5% → Asociaciones y listados en CEX",
+            "distribution-1": "80% → Distribución inicial a la comunidad (Airdrops, Staking)",
+            "distribution-2": "10% → Reserva para desarrollo futuro y asociaciones",
+            "distribution-3": "5% → Fondo de liquidez",
+            "distribution-4": "5% → Iniciativas benéficas y campañas de concienciación",
             "taxes": "Impuestos de Transacción: <strong>1% Burn, 0% de Impuesto</strong>",
             "roadmap-title": "📅 Roadmap",
             "roadmap-phase1": "🚀 Fase 1: Lanzamiento y Fundación",
@@ -307,3 +297,4 @@ video {
 
 </body>
 </html>
+
