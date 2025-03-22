@@ -37,16 +37,21 @@
     }
     /* Wrapper pour garantir le scroll complet */
     .wrapper {
-      padding-top: 50px;
+      padding-top: 20px;
       min-height: 100vh;
     }
-    /* Sections semi-transparentes */
-    .section {
-      padding: 50px;
-      background: rgba(0, 0, 0, 0.7);
-      margin: 20px auto;
-      width: 80%;
-      border-radius: 10px;
+    /* Bannière Affiliation en haut de page */
+    .affiliation-banner {
+      background: rgba(255, 153, 0, 0.9);
+      padding: 20px;
+      margin: 10px auto;
+      width: 90%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    }
+    .affiliation-banner p {
+      font-size: 1.4rem;
+      margin: 10px 0;
     }
     /* Boutons */
     .button {
@@ -126,22 +131,13 @@
       border-radius: 10px;
       margin-top: 20px;
     }
-    /* Section Affiliation */
-    .affiliation-section {
-      background: rgba(255, 153, 0, 0.8);
-      padding: 40px;
+    /* Autres sections standard */
+    .section {
+      padding: 50px;
+      background: rgba(0, 0, 0, 0.7);
       margin: 20px auto;
       width: 80%;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-    }
-    .affiliation-section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
-    .affiliation-section p {
-      font-size: 1.5rem;
-      margin-bottom: 20px;
     }
   </style>
 </head>
@@ -155,6 +151,13 @@
       <option value="en">🇬🇧 English</option>
       <option value="es">🇪🇸 Español</option>
   </select>
+</div>
+
+<!-- Bannière Affiliation Rappel -->
+<div class="affiliation-banner">
+  <p><strong>Devenez Ambassadeur IKE WARRIOR !</strong></p>
+  <p>Rejoignez notre programme d'affiliation et gagnez des récompenses en invitant au moins 10 nouveaux investisseurs à rejoindre l'aventure IKE WARRIOR.</p>
+  <a href="affiliation.html" class="button">Inscrivez-vous Maintenant</a>
 </div>
 
 <!-- Contenu principal -->
@@ -198,14 +201,6 @@
       Votre navigateur ne supporte pas la lecture de vidéos.
     </video>
   </div>
-  
-  <!-- Nouvelle section Affiliation -->
-  <div class="affiliation-section">
-    <h2>Devenez Ambassadeur IKE WARRIOR !</h2>
-    <p>Rejoignez notre programme d'affiliation et gagnez des récompenses en invitant au moins 10 nouveaux acheteurs à rejoindre l'aventure IKE WARRIOR.</p>
-    <a href="affiliation.html" class="button">Inscrivez-vous Maintenant</a>
-  </div>
-  
 </div>
 
 <script>
