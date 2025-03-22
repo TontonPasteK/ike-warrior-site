@@ -72,7 +72,7 @@
     .top-affiliation-btn:hover {
       background: #cc7700;
     }
-    /* Titres et texte */
+    /* Titres et textes principaux */
     h1 {
       font-size: 3.5rem;
       color: #FFD700;
@@ -138,7 +138,51 @@
       border-radius: 10px;
       margin-top: 20px;
     }
-    /* Section affiliation (bas de page) */
+    /* Section animation (Légende de IKE) */
+    .animation-container {
+      position: relative;
+      width: 80%;
+      margin: 40px auto;
+      height: 300px; /* Ajustez la hauteur selon vos besoins */
+      overflow: hidden;
+    }
+    .animation-text {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      opacity: 0;
+      font-size: 1.2rem;
+      padding: 0 10px;
+    }
+    @keyframes fadeInOut {
+      0%   { opacity: 0; transform: translateY(20px); }
+      10%  { opacity: 1; transform: translateY(0); }
+      40%  { opacity: 1; transform: translateY(0); }
+      50%  { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 0; }
+    }
+    /* Chaque segment d'animation dure 10 secondes avec un décalage */
+    .segment1 {
+      top: 10%;
+      animation: fadeInOut 10s ease-in-out forwards;
+      animation-delay: 0s;
+    }
+    .segment2 {
+      top: 30%;
+      animation: fadeInOut 10s ease-in-out forwards;
+      animation-delay: 10s;
+    }
+    .segment3 {
+      top: 50%;
+      animation: fadeInOut 10s ease-in-out forwards;
+      animation-delay: 20s;
+    }
+    .segment4 {
+      top: 70%;
+      animation: fadeInOut 10s ease-in-out forwards;
+      animation-delay: 30s;
+    }
+    /* Section Affiliation en bas de page */
     .affiliation-section {
       background: rgba(255,153,0,0.9);
       padding: 40px;
@@ -176,6 +220,23 @@
   <div class="wrapper">
     <h1 id="title">🚀 IKE WARRIOR - ANTI-RUG COIN 🛡️</h1>
     <p id="description">Plus d'arnaques. Plus de rug-pulls.<br>Rejoignez l'Anti-Rug Army et aidez à nettoyer l'espace crypto !</p>
+    
+    <!-- Section Animation intégrée sous le titre -->
+    <div class="animation-container">
+      <div class="animation-text segment1">
+        Il était une fois, dans les profondeurs chaotiques de la cryptosphère, un monde ravagé par les arnaques, les "rug pulls" et les promesses non tenues.
+      </div>
+      <div class="animation-text segment2">
+        Les investisseurs erraient, désabusés, dans les ruines d’un Web3 trahi.
+      </div>
+      <div class="animation-text segment3">
+        C’est alors qu’émergea IKE, un chien pas comme les autres. Casqué, armé, et animé d’un courage indomptable, il ne venait pas pour jouer... mais pour protéger.
+      </div>
+      <div class="animation-text segment4">
+        Né d’une expérience douloureuse, IKE a juré de ne jamais laisser sa meute se faire dépouiller à nouveau. 🐾
+      </div>
+    </div>
+
     <p id="launch-text">Lancement dans :</p>
     <div id="countdown"></div>
 
@@ -222,7 +283,7 @@
   </div>
 
   <script>
-    // Objet de traductions mis à jour pour inclure les nouveaux textes d'affiliation
+    // Traductions pour la page principale
     const translations = {
       fr: {
         description: "Plus d'arnaques. Plus de rug-pulls.<br>Rejoignez l'Anti-Rug Army et aidez à nettoyer l'espace crypto !",
@@ -338,6 +399,5 @@
       startCountdown(launchDate);
     });
   </script>
-
 </body>
-</
+</html>
