@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IKE WARRIOR - Anti-Rug Coin</title>
+    <style>
+       body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('Ike combatant.webp') no-repeat center 85% fixed;
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+
+
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+/* Effet filigrane sur toute la page */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Ajuste l’opacité ici (0.6 = 60%) */
+    z-index: 0;
+}
+
+/* Pour que le contenu reste visible au-dessus */
+.overlay, .section {
+    position: relative;
+    z-index: 1;
+}
+
+/* Sections semi-transparentes */
+.section {
+    padding: 50px;
+    background: rgba(0, 0, 0, 0.7); /* Ajuste la transparence ici */
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+}
+
+
+        .overlay {
+            position: relative;
+            z-index: 1;
+            padding: 50px 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #FFD700;
+        }
+
+        #countdown {
+            font-size: 2rem;
+            margin: 20px;
+            color: #00ffcc;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            background-color: #FF9900;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background-color: #cc7700;
+        }
+
+        .section {
+            padding: 50px;
+            background: rgba(0, 0, 0, 0.8); /* Fond semi-transparent */
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 10px;
+        }
+
+        iframe {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+ 
+    <div class="overlay">
+        <h1>🚀 IKE WARRIOR - ANTI-RUG COIN 🛡️</h1>
+        <p>Lancement dans :</p>
+        <div id="countdown"></div>
+        <a href="https://t.me/+vFXaFkIKFW8xMWY0" class="button" target="_blank">💬 Rejoindre Telegram</a>
+        <a href="https://x.com/IKEWarriorArmy" class="button" target="_blank">📢 Suivre sur Twitter</a>
+        <a href="#" class="button">🔥 Acheter $IKE en prévente</a>
+    </div>
+
+    <div class="section">
+        <h2>📜 Whitepaper</h2>
+        <p>Découvrez tous les détails de IKE WARRIOR et sa mission anti-scam.</p>
+        <a href="#" class="button">📄 Lire le Whitepaper</a>
+    </div>
+
+    <div class="section">
+        <h2>💰 Tokenomics</h2>
+        <p>Supply Total : <strong>1 Milliard $IKE</strong></p>
+        <p>Distribution :</p>
+        <ul>
+            <li>60% → Liquidity Pool (LP)</li>
+            <li>20% → Réserve communautaire et marketing</li>
+            <li>10% → Team & développement (Vesting 6 mois)</li>
+            <li>5% → Airdrops & Récompenses</li>
+            <li>5% → Partenariats & CEX Listings</li>
+        </ul>
+        <p>Taxes sur Transactions : <strong>1% Burn, 0% Taxe</strong></p>
+    </div>
+
+    <div class="section">
+        <h2>🛡️ Sécurité & Transparence</h2>
+        <p>✅ Liquidity Locked<br>✅ No Mint Functions<br>✅ No Owner Privileges</p>
+    </div>
+
+    <div class="section">
+        <h2>📅 Roadmap</h2>
+        <p>🚀 Phase 1 : Lancement & Fondation</p>
+        <p>🔥 Phase 2 : Adoption & Expansion</p>
+        <p>🏆 Phase 3 : Domination</p>
+    </div>
+
+    <div class="section">
+        <h2>🎥 Vidéo TikTok</h2>
+        <iframe src="https://www.tiktok.com/embed/7481276010135112982" width="325" height="578" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            const launchDate = new Date();
+            launchDate.setDate(launchDate.getDate() + 7);
+
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = `${days}j ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                document.getElementById("countdown").innerHTML = "LANCÉ ! 🚀";
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+
+</body>
+</html>
