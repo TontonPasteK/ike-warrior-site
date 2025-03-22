@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IKE WARRIOR - Whitepaper</title>
+  <meta name="description" content="Whitepaper de IKE WARRIOR">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: #111;
+      color: white;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      color: #FFD700;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    h2 {
+      margin-top: 40px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    ul li {
+      margin: 5px 0;
+    }
+    a {
+      color: #FFD700;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .back {
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
+  <script>
+    const translationsWhitepaper = {
+      fr: {
+        "whitepaper-main-title": "IKE WARRIOR - Whitepaper",
+        "toc-title": "Table des Matières",
+        "toc-item-1": "Introduction",
+        "toc-item-2": "Légende de IKE – Le Guerrier Anti-Rug",
+        "toc-item-3": "Problématique",
+        "toc-item-4": "Mission et Vision",
+        "toc-item-5": "Tokenomics",
+        "toc-item-6": "Roadmap",
+        "toc-item-7": "Sécurité et Transparence",
+        "toc-item-8": "Communauté et Gouvernance",
+        "toc-item-9": "Utilité et Cas d'Usage",
+        "toc-item-10": "Conclusion",
+        "section-intro": "Introduction",
+        "section-intro-text": "Dans le monde en constante évolution des cryptomonnaies, les memecoins ont émergé comme une fusion unique de culture internet et d'innovation financière. Des projets tels que Dogecoin et Shiba Inu ont démontré le pouvoir des communautés décentralisées à transformer des mèmes en actifs numériques de valeur. Cependant, cette popularité a également attiré des acteurs malveillants, rendant les investisseurs vulnérables aux arnaques et aux \"rug pulls\". C'est dans ce contexte qu'est né IKE WARRIOR.",
+        "section-legend": "Légende de IKE – Le Guerrier Anti-Rug",
+        "section-legend-text": "Il était une fois, dans les profondeurs chaotiques de la cryptosphère, un monde ravagé par les arnaques, les \"rug pulls\" et les promesses non tenues. Les investisseurs erraient, désabusés, dans les ruines d’un Web3 trahi. C’est alors qu’émergea IKE, un chien pas comme les autres. Casqué, armé, et animé d’un courage indomptable, il ne venait pas pour jouer... mais pour protéger. Né d’une expérience douloureuse, IKE a juré de ne jamais laisser sa meute se faire dépouiller à nouveau. 🐾 De ce vœu est née l’IKE ARMY, une légion de résistants, unis par une mission commune : éradiquer les arnaques, restaurer la confiance, et construire un écosystème où l’humour, la transparence et la communauté règnent. Ce whitepaper est leur manifeste. Leur cri de guerre. Leur promesse.",
+        "section-problem": "Problématique",
+        "section-problem-text": "Le marché des cryptomonnaies, bien qu'innovant, est souvent entaché par des projets frauduleux qui exploitent la confiance des investisseurs. Ces \"rug pulls\" et autres arnaques minent la crédibilité de l'écosystème et freinent l'adoption massive des cryptomonnaies.",
+        "section-mission": "Mission et Vision",
+        "section-mission-text": "<strong>Mission :</strong> Protéger la communauté crypto des arnaques en offrant une plateforme sécurisée et transparente, tout en cultivant l'esprit communautaire et l'humour propre aux memecoins.<br><strong>Vision :</strong> Devenir le symbole de confiance dans le monde des memecoins, où chaque membre de la communauté se sent en sécurité et valorisé.",
+        "section-tokenomics": "Tokenomics",
+        "section-tokenomics-text": "<strong>Nom du Token :</strong> IKE<br><strong>Symbole :</strong> 🛡️<br><strong>Blockchain :</strong> Ethereum (ERC-20)<br><strong>Approvisionnement Total :</strong> 1 000 000 000 IKE<br><strong>Distribution :</strong>",
+        "section-tokenomics-list-1": "80% : Distribution initiale à la communauté via des airdrops et des programmes de staking.",
+        "section-tokenomics-list-2": "10% : Réserve pour le développement futur et les partenariats stratégiques.",
+        "section-tokenomics-list-3": "5% : Fonds de liquidité pour assurer la stabilité du marché.",
+        "section-tokenomics-list-4": "5% : Fonds pour les initiatives caritatives et les campagnes de sensibilisation.",
+        "section-roadmap": "Roadmap",
+        "section-roadmap-phase1": "Phase 1 : Lancement Initial",
+        "section-roadmap-phase1-list-1": "Déploiement du token IKE sur Ethereum.",
+        "section-roadmap-phase1-list-2": "Campagne de sensibilisation sur les réseaux sociaux.",
+        "section-roadmap-phase1-list-3": "Airdrop initial pour engager la communauté.",
+        "section-roadmap-phase2": "Phase 2 : Expansion de la Communauté",
+        "section-roadmap-phase2-list-1": "Lancement du site web officiel et du whitepaper.",
+        "section-roadmap-phase2-list-2": "Programmes de staking pour récompenser les détenteurs.",
+        "section-roadmap-phase2-list-3": "Partenariats avec des influenceurs et des plateformes crypto.",
+        "section-roadmap-phase3": "Phase 3 : Développement de l'Écosystème",
+        "section-roadmap-phase3-list-1": "Lancement d'une plateforme éducative sur les arnaques crypto.",
+        "section-roadmap-phase3-list-2": "Intégration de IKE dans des plateformes de paiement partenaires.",
+        "section-roadmap-phase3-list-3": "Organisation d'événements communautaires et de campagnes caritatives.",
+        "section-roadmap-phase4": "Phase 4 : Gouvernance Décentralisée",
+        "section-roadmap-phase4-list-1": "Mise en place d'un système de gouvernance DAO pour impliquer la communauté dans les décisions clés.",
+        "section-roadmap-phase4-list-2": "Développement continu basé sur les propositions et votes de la communauté.",
+        "section-security": "Sécurité et Transparence",
+        "section-security-text": "La sécurité des investisseurs est notre priorité absolue. Pour garantir cela :",
+        "section-security-list-1": "<strong>Contrat Intelligent Audité :</strong> Tous nos contrats intelligents seront audités par des tiers indépendants avant le lancement.",
+        "section-security-list-2": "<strong>Transparence Financière :</strong> Les portefeuilles associés au projet seront publics et régulièrement mis à jour.",
+        "section-security-list-3": "<strong>Communication Ouverte :</strong> Des mises à jour régulières seront partagées via nos canaux officiels pour tenir la communauté informée.",
+        "section-community": "Communauté et Gouvernance",
+        "section-community-text": "Inspiré par des projets comme Shiba Inu, nous croyons en la puissance d'une communauté forte et engagée. Chaque détenteur de IKE aura une voix dans les décisions majeures du projet grâce à notre système de gouvernance décentralisée (DAO).",
+        "section-utility": "Utilité et Cas d'Usage",
+        "section-utility-text": "Bien que né en tant que memecoin, IKE vise à offrir une utilité réelle :",
+        "section-utility-list-1": "<strong>Plateforme Éducative :</strong> Une ressource dédiée à l'éducation sur les arnaques crypto et les meilleures pratiques de sécurité.",
+        "section-utility-list-2": "<strong>Partenariats Commerciaux :</strong> Intégration de IKE comme moyen de paiement sur des plateformes partenaires.",
+        "section-utility-list-3": "<strong>Initiatives Caritatives :</strong> Soutien à des causes liées à la protection des investisseurs et à l'éducation financière.",
+        "section-conclusion": "Conclusion",
+        "section-conclusion-text": "IKE WARRIOR n'est pas seulement un memecoin ; c'est un mouvement dédié à la protection, à l'éducation et à l'autonomisation de la communauté crypto. En rejoignant l'IKE ARMY, vous faites partie d'une initiative visant à restaurer la confiance et à promouvoir un environnement crypto plus sûr et plus transparent.",
+        "back-home": "Retour à la page d'accueil"
+      },
+      en: {
+        "whitepaper-main-title": "IKE WARRIOR - Whitepaper",
+        "toc-title": "Table of Contents",
+        "toc-item-1": "Introduction",
+        "toc-item-2": "IKE Legend – The Anti-Rug Warrior",
+        "toc-item-3": "Problem Statement",
+        "toc-item-4": "Mission and Vision",
+        "toc-item-5": "Tokenomics",
+        "toc-item-6": "Roadmap",
+        "toc-item-7": "Security and Transparency",
+        "toc-item-8": "Community and Governance",
+        "toc-item-9": "Utility and Use Cases",
+        "toc-item-10": "Conclusion",
+        "section-intro": "Introduction",
+        "section-intro-text": "In the ever-evolving world of cryptocurrencies, memecoins have emerged as a unique fusion of internet culture and financial innovation. Projects like Dogecoin and Shiba Inu have demonstrated the power of decentralized communities in turning memes into valuable digital assets. However, this popularity has also attracted malicious actors, leaving investors vulnerable to scams and rug pulls. It is in this context that IKE WARRIOR was born.",
+        "section-legend": "IKE Legend – The Anti-Rug Warrior",
+        "section-legend-text": "Once upon a time, in the chaotic depths of the crypto-sphere, a world ravaged by scams, rug pulls, and unfulfilled promises existed. Disillusioned investors wandered amidst the ruins of a betrayed Web3. Then emerged IKE, a dog like no other. Helmeted, armed, and driven by indomitable courage, he wasn't there to play... but to protect. Born from painful experience, IKE vowed never to let his pack be stripped again. 🐾 From this vow, the IKE ARMY was born – a legion of resistance, united by a common mission: to eradicate scams, restore trust, and build an ecosystem where humor, transparency, and community prevail. This whitepaper is their manifesto. Their battle cry. Their promise.",
+        "section-problem": "Problem Statement",
+        "section-problem-text": "Although innovative, the cryptocurrency market is often marred by fraudulent projects that exploit investors' trust. These rug pulls and other scams undermine the credibility of the ecosystem and hinder mass adoption of cryptocurrencies.",
+        "section-mission": "Mission and Vision",
+        "section-mission-text": "<strong>Mission:</strong> To protect the crypto community from scams by offering a secure and transparent platform while fostering community spirit and the unique humor of memecoins.<br><strong>Vision:</
