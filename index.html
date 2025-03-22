@@ -8,7 +8,7 @@
   <!-- Importation de la police Orbitron depuis Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Assurer que le scroll fonctionne */
+    /* Styles généraux */
     html, body {
       margin: 0;
       padding: 0;
@@ -24,7 +24,6 @@
       overflow-y: auto;
       position: relative;
     }
-    /* Effet d'opacité */
     body::before {
       content: "";
       position: fixed;
@@ -35,23 +34,81 @@
       background: rgba(0, 0, 0, 0.6);
       z-index: -1;
     }
-    /* Wrapper pour garantir le scroll complet */
     .wrapper {
       padding-top: 20px;
       min-height: 100vh;
     }
-    /* Bannière Affiliation en haut de page */
-    .affiliation-banner {
-      background: rgba(255, 153, 0, 0.9);
-      padding: 20px;
-      margin: 10px auto;
-      width: 90%;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    /* Sélecteur de langue */
+    .language-selector {
+      position: fixed;
+      top: 10px;
+      right: 20px;
+      background: rgba(0,0,0,0.7);
+      padding: 10px;
+      border-radius: 5px;
+      z-index: 1000;
     }
-    .affiliation-banner p {
-      font-size: 1.4rem;
+    .language-selector select {
+      background: black;
+      color: white;
+      border: none;
+      padding: 5px;
+      font-size: 16px;
+    }
+    /* Bouton en haut pour l'affiliation */
+    .top-affiliation-btn {
+      position: fixed;
+      top: 10px;
+      left: 20px;
+      background: #FF9900;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      text-decoration: none;
+      z-index: 1000;
+      transition: background 0.3s;
+    }
+    .top-affiliation-btn:hover {
+      background: #cc7700;
+    }
+    /* Titres et texte */
+    h1 {
+      font-size: 3.5rem;
+      color: #FFD700;
+      text-shadow: 3px 3px 6px rgba(0,0,0,0.9);
+      margin: 20px 0;
+      background-color: rgba(0,0,0,0.3);
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+    #description {
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
       margin: 10px 0;
+      background-color: rgba(0,0,0,0.3);
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+    #countdown {
+      font-size: 2rem;
+      margin: 20px;
+      color: #00ffcc;
+      background: black;
+      padding: 10px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+    /* Sections générales */
+    .section {
+      padding: 50px;
+      background: rgba(0,0,0,0.7);
+      margin: 20px auto;
+      width: 80%;
+      border-radius: 10px;
     }
     /* Boutons */
     .button {
@@ -64,62 +121,12 @@
       color: white;
       background-color: #FF9900;
       border-radius: 5px;
-      transition: background-color 0.3s;
+      transition: background 0.3s;
     }
     .button:hover {
       background-color: #cc7700;
     }
-    /* Titre futuriste */
-    h1 {
-      font-size: 3.5rem;
-      color: #FFD700;
-      font-family: 'Orbitron', sans-serif;
-      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
-      margin: 20px 0;
-      background-color: rgba(0, 0, 0, 0.3);
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 10px;
-    }
-    /* Texte important */
-    #description {
-      font-size: 1.8rem;
-      font-weight: bold;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-      margin: 10px 0;
-      background-color: rgba(0, 0, 0, 0.3);
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 10px;
-    }
-    /* Timer */
-    #countdown {
-      font-size: 2rem;
-      margin: 20px;
-      color: #00ffcc;
-      background: black;
-      padding: 10px;
-      border-radius: 10px;
-      display: inline-block;
-    }
-    /* Sélecteur de langue */
-    .language-selector {
-      position: fixed;
-      top: 10px;
-      right: 20px;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 10px;
-      border-radius: 5px;
-      z-index: 1000;
-    }
-    .language-selector select {
-      background: black;
-      color: white;
-      border: none;
-      padding: 5px;
-      font-size: 16px;
-    }
-    /* Style pour la vidéo */
+    /* Section vidéo */
     .video-container {
       width: 80%;
       margin: 0 auto;
@@ -127,192 +134,202 @@
     }
     video {
       width: 100%;
-      max-width: 600px; /* Limite la largeur pour réduire l'affichage */
+      max-width: 600px;
       border-radius: 10px;
       margin-top: 20px;
     }
-    /* Autres sections standard */
-    .section {
-      padding: 50px;
-      background: rgba(0, 0, 0, 0.7);
+    /* Section affiliation (bas de page) */
+    .affiliation-section {
+      background: rgba(255,153,0,0.9);
+      padding: 40px;
       margin: 20px auto;
       width: 80%;
       border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    }
+    .affiliation-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .affiliation-section p {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
 
-<!-- Sélecteur de langue -->
-<div class="language-selector">
-  🌍 <label for="language">Langue :</label>
-  <select id="language" onchange="changeLanguage()">
+  <!-- Bouton en haut pour accéder à la section affiliation -->
+  <a href="#affiliation" class="top-affiliation-btn">Devenez ambassadeur de la IkeArmy</a>
+
+  <!-- Sélecteur de langue -->
+  <div class="language-selector">
+    🌍 <label for="language">Langue :</label>
+    <select id="language" onchange="changeLanguage()">
       <option value="fr">🇫🇷 Français</option>
       <option value="en">🇬🇧 English</option>
       <option value="es">🇪🇸 Español</option>
-  </select>
-</div>
-
-<!-- Bannière Affiliation Rappel -->
-<div class="affiliation-banner">
-  <p><strong>Devenez Ambassadeur IKE WARRIOR !</strong></p>
-  <p>Rejoignez notre programme d'affiliation et gagnez des récompenses en invitant au moins 10 nouveaux investisseurs à rejoindre l'aventure IKE WARRIOR.</p>
-  <a href="affiliation.html" class="button">Inscrivez-vous Maintenant</a>
-</div>
-
-<!-- Contenu principal -->
-<div class="wrapper">
-  <h1 id="title">🚀 IKE WARRIOR - ANTI-RUG COIN 🛡️</h1>
-  <p id="description">Plus d'arnaques. Plus de rug-pulls.<br>Rejoignez l'Anti-Rug Army et aidez à nettoyer l'espace crypto !</p>
-  <p id="launch-text">Lancement dans :</p>
-  <div id="countdown"></div>
-
-  <div class="section">
-    <h2 id="whitepaper-title">📜 Whitepaper</h2>
-    <p id="whitepaper-desc">Découvrez tous les détails de IKE WARRIOR et sa mission anti-scam.</p>
-    <!-- Le lien s'ouvre dans une nouvelle page -->
-    <a href="whitepaper.html" class="button" id="btn-whitepaper" target="_blank">📄 Lire le Whitepaper</a>
+    </select>
   </div>
 
-  <div class="section">
-    <h2 id="tokenomics-title">💰 Tokenomics</h2>
-    <p id="supply-total">Supply Total : <strong>1 Milliard $IKE</strong></p>
-    <p id="tokenomics-desc">Distribution :</p>
-    <ul>
-      <li id="distribution-1">80% → Distribution initiale à la communauté (Airdrops, Staking)</li>
-      <li id="distribution-2">10% → Réserve développement futur & partenariats</li>
-      <li id="distribution-3">5% → Fonds de liquidité</li>
-      <li id="distribution-4">5% → Initiatives caritatives & campagnes de sensibilisation</li>
-    </ul>
-    <p id="taxes">Taxes sur Transactions : <strong>1% Burn, 0% Taxe</strong></p>
+  <!-- Contenu principal -->
+  <div class="wrapper">
+    <h1 id="title">🚀 IKE WARRIOR - ANTI-RUG COIN 🛡️</h1>
+    <p id="description">Plus d'arnaques. Plus de rug-pulls.<br>Rejoignez l'Anti-Rug Army et aidez à nettoyer l'espace crypto !</p>
+    <p id="launch-text">Lancement dans :</p>
+    <div id="countdown"></div>
+
+    <div class="section">
+      <h2 id="whitepaper-title">📜 Whitepaper</h2>
+      <p id="whitepaper-desc">Découvrez tous les détails de IKE WARRIOR et sa mission anti-scam.</p>
+      <!-- Le lien s'ouvre dans une nouvelle page -->
+      <a href="whitepaper.html" class="button" id="btn-whitepaper" target="_blank">📄 Lire le Whitepaper</a>
+    </div>
+
+    <div class="section">
+      <h2 id="tokenomics-title">💰 Tokenomics</h2>
+      <p id="supply-total">Supply Total : <strong>1 Milliard $IKE</strong></p>
+      <p id="tokenomics-desc">Distribution :</p>
+      <ul>
+        <li id="distribution-1">80% → Distribution initiale à la communauté (Airdrops, Staking)</li>
+        <li id="distribution-2">10% → Réserve développement futur & partenariats</li>
+        <li id="distribution-3">5% → Fonds de liquidité</li>
+        <li id="distribution-4">5% → Initiatives caritatives & campagnes de sensibilisation</li>
+      </ul>
+      <p id="taxes">Taxes sur Transactions : <strong>1% Burn, 0% Taxe</strong></p>
+    </div>
+
+    <div class="section">
+      <h2 id="roadmap-title">📅 Roadmap</h2>
+      <p id="roadmap-phase1">🚀 Phase 1 : Lancement & Fondation</p>
+      <p id="roadmap-phase2">🔥 Phase 2 : Adoption & Expansion</p>
+      <p id="roadmap-phase3">🏆 Phase 3 : Domination</p>
+    </div>
+
+    <div class="section video-container">
+      <h2 id="video-title">🎥 Vidéo de Présentation</h2>
+      <video controls>
+        <source src="IkeWarrior.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la lecture de vidéos.
+      </video>
+    </div>
+    
+    <!-- Section Affiliation en bas de page -->
+    <div class="affiliation-section" id="affiliation">
+      <h2>Devenez Ambassadeur IKE WARRIOR !</h2>
+      <p>Rejoignez notre programme d'affiliation et gagnez des récompenses en invitant au moins 10 nouveaux investisseurs à rejoindre l'aventure IKE WARRIOR.</p>
+      <a href="affiliation.html" class="button">Inscrivez-vous Maintenant</a>
+    </div>
   </div>
 
-  <div class="section">
-    <h2 id="roadmap-title">📅 Roadmap</h2>
-    <p id="roadmap-phase1">🚀 Phase 1 : Lancement & Fondation</p>
-    <p id="roadmap-phase2">🔥 Phase 2 : Adoption & Expansion</p>
-    <p id="roadmap-phase3">🏆 Phase 3 : Domination</p>
-  </div>
-
-  <div class="section video-container">
-    <h2 id="video-title">🎥 Vidéo de Présentation</h2>
-    <video controls>
-      <source src="IkeWarrior.mp4" type="video/mp4">
-      Votre navigateur ne supporte pas la lecture de vidéos.
-    </video>
-  </div>
-</div>
-
-<script>
-  const translations = {
+  <script>
+    const translations = {
       fr: {
-          description: "Plus d'arnaques. Plus de rug-pulls.<br>Rejoignez l'Anti-Rug Army et aidez à nettoyer l'espace crypto !",
-          "launch-text": "Lancement dans :",
-          "whitepaper-title": "📜 Whitepaper",
-          "whitepaper-desc": "Découvrez tous les détails de IKE WARRIOR et sa mission anti-scam.",
-          "btn-whitepaper": "📄 Lire le Whitepaper",
-          "tokenomics-title": "💰 Tokenomics",
-          "supply-total": "Supply Total : <strong>1 Milliard $IKE</strong>",
-          "tokenomics-desc": "Distribution :",
-          "distribution-1": "80% → Distribution initiale à la communauté (Airdrops, Staking)",
-          "distribution-2": "10% → Réserve développement futur & partenariats",
-          "distribution-3": "5% → Fonds de liquidité",
-          "distribution-4": "5% → Initiatives caritatives & campagnes de sensibilisation",
-          "taxes": "Taxes sur Transactions : <strong>1% Burn, 0% Taxe</strong>",
-          "roadmap-title": "📅 Roadmap",
-          "roadmap-phase1": "🚀 Phase 1 : Lancement & Fondation",
-          "roadmap-phase2": "🔥 Phase 2 : Adoption & Expansion",
-          "roadmap-phase3": "🏆 Phase 3 : Domination",
-          "video-title": "🎥 Vidéo de Présentation"
+        description: "Plus d'arnaques. Plus de rug-pulls.<br>Rejoignez l'Anti-Rug Army et aidez à nettoyer l'espace crypto !",
+        "launch-text": "Lancement dans :",
+        "whitepaper-title": "📜 Whitepaper",
+        "whitepaper-desc": "Découvrez tous les détails de IKE WARRIOR et sa mission anti-scam.",
+        "btn-whitepaper": "📄 Lire le Whitepaper",
+        "tokenomics-title": "💰 Tokenomics",
+        "supply-total": "Supply Total : <strong>1 Milliard $IKE</strong>",
+        "tokenomics-desc": "Distribution :",
+        "distribution-1": "80% → Distribution initiale à la communauté (Airdrops, Staking)",
+        "distribution-2": "10% → Réserve développement futur & partenariats",
+        "distribution-3": "5% → Fonds de liquidité",
+        "distribution-4": "5% → Initiatives caritatives & campagnes de sensibilisation",
+        "taxes": "Taxes sur Transactions : <strong>1% Burn, 0% Taxe</strong>",
+        "roadmap-title": "📅 Roadmap",
+        "roadmap-phase1": "🚀 Phase 1 : Lancement & Fondation",
+        "roadmap-phase2": "🔥 Phase 2 : Adoption & Expansion",
+        "roadmap-phase3": "🏆 Phase 3 : Domination",
+        "video-title": "🎥 Vidéo de Présentation"
       },
       en: {
-          description: "No more scams. No more rug-pulls.<br>Join the Anti-Rug Army and help clean the crypto space!",
-          "launch-text": "Launch in:",
-          "whitepaper-title": "📜 Whitepaper",
-          "whitepaper-desc": "Discover all details about IKE WARRIOR and its anti-scam mission.",
-          "btn-whitepaper": "📄 Read the Whitepaper",
-          "tokenomics-title": "💰 Tokenomics",
-          "supply-total": "Total Supply: <strong>1 Billion $IKE</strong>",
-          "tokenomics-desc": "Distribution:",
-          "distribution-1": "80% → Initial distribution to the community (Airdrops, Staking)",
-          "distribution-2": "10% → Reserve for future development & partnerships",
-          "distribution-3": "5% → Liquidity fund",
-          "distribution-4": "5% → Charitable initiatives & awareness campaigns",
-          "taxes": "Transaction Taxes: <strong>1% Burn, 0% Tax</strong>",
-          "roadmap-title": "📅 Roadmap",
-          "roadmap-phase1": "🚀 Phase 1: Launch & Foundation",
-          "roadmap-phase2": "🔥 Phase 2: Adoption & Expansion",
-          "roadmap-phase3": "🏆 Phase 3: Domination",
-          "video-title": "🎥 Presentation Video"
+        description: "No more scams. No more rug-pulls.<br>Join the Anti-Rug Army and help clean the crypto space!",
+        "launch-text": "Launch in:",
+        "whitepaper-title": "📜 Whitepaper",
+        "whitepaper-desc": "Discover all details about IKE WARRIOR and its anti-scam mission.",
+        "btn-whitepaper": "📄 Read the Whitepaper",
+        "tokenomics-title": "💰 Tokenomics",
+        "supply-total": "Total Supply: <strong>1 Billion $IKE</strong>",
+        "tokenomics-desc": "Distribution:",
+        "distribution-1": "80% → Initial distribution to the community (Airdrops, Staking)",
+        "distribution-2": "10% → Reserve for future development & partnerships",
+        "distribution-3": "5% → Liquidity fund",
+        "distribution-4": "5% → Charitable initiatives & awareness campaigns",
+        "taxes": "Transaction Taxes: <strong>1% Burn, 0% Tax</strong>",
+        "roadmap-title": "📅 Roadmap",
+        "roadmap-phase1": "🚀 Phase 1: Launch & Foundation",
+        "roadmap-phase2": "🔥 Phase 2: Adoption & Expansion",
+        "roadmap-phase3": "🏆 Phase 3: Domination",
+        "video-title": "🎥 Presentation Video"
       },
       es: {
-          description: "No más estafas. No más rug-pulls.<br>Únete al Anti-Rug Army y ayuda a limpiar el espacio cripto!",
-          "launch-text": "Lanzamiento en:",
-          "whitepaper-title": "📜 Whitepaper",
-          "whitepaper-desc": "Descubre todos los detalles sobre IKE WARRIOR y su misión anti-estafa.",
-          "btn-whitepaper": "📄 Leer el Whitepaper",
-          "tokenomics-title": "💰 Tokenomics",
-          "supply-total": "Suministro Total: <strong>1 Billón $IKE</strong>",
-          "tokenomics-desc": "Distribución:",
-          "distribution-1": "80% → Distribución inicial a la comunidad (Airdrops, Staking)",
-          "distribution-2": "10% → Reserva para desarrollo futuro y asociaciones",
-          "distribution-3": "5% → Fondo de liquidez",
-          "distribution-4": "5% → Iniciativas benéficas y campañas de concienciación",
-          "taxes": "Impuestos de Transacción: <strong>1% Burn, 0% de Impuesto</strong>",
-          "roadmap-title": "📅 Roadmap",
-          "roadmap-phase1": "🚀 Fase 1: Lanzamiento y Fundación",
-          "roadmap-phase2": "🔥 Fase 2: Adopción y Expansión",
-          "roadmap-phase3": "🏆 Fase 3: Dominación",
-          "video-title": "🎥 Video de Presentación"
+        description: "No más estafas. No más rug-pulls.<br>Únete al Anti-Rug Army y ayuda a limpiar el espacio cripto!",
+        "launch-text": "Lanzamiento en:",
+        "whitepaper-title": "📜 Whitepaper",
+        "whitepaper-desc": "Descubre todos los detalles sobre IKE WARRIOR y su misión anti-estafa.",
+        "btn-whitepaper": "📄 Leer el Whitepaper",
+        "tokenomics-title": "💰 Tokenomics",
+        "supply-total": "Suministro Total: <strong>1 Billón $IKE</strong>",
+        "tokenomics-desc": "Distribución:",
+        "distribution-1": "80% → Distribución inicial a la comunidad (Airdrops, Staking)",
+        "distribution-2": "10% → Reserva para desarrollo futuro y asociaciones",
+        "distribution-3": "5% → Fondo de liquidez",
+        "distribution-4": "5% → Iniciativas benéficas y campañas de concienciación",
+        "taxes": "Impuestos de Transacción: <strong>1% Burn, 0% de Impuesto</strong>",
+        "roadmap-title": "📅 Roadmap",
+        "roadmap-phase1": "🚀 Fase 1: Lanzamiento y Fundación",
+        "roadmap-phase2": "🔥 Fase 2: Adopción y Expansión",
+        "roadmap-phase3": "🏆 Fase 3: Dominación",
+        "video-title": "🎥 Video de Presentación"
       }
-  };
+    };
 
-  function changeLanguage() {
+    function changeLanguage() {
       const lang = document.getElementById("language").value;
       localStorage.setItem('language', lang);
       if (translations[lang]) {
-          Object.keys(translations[lang]).forEach(key => {
-              const element = document.getElementById(key);
-              if (element) {
-                  element.innerHTML = translations[lang][key];
-              }
-          });
+        Object.keys(translations[lang]).forEach(key => {
+          const element = document.getElementById(key);
+          if (element) {
+            element.innerHTML = translations[lang][key];
+          }
+        });
       }
-  }
+    }
 
-  // Implémentation du compte à rebours
-  function startCountdown(targetDate) {
+    // Implémentation du compte à rebours
+    function startCountdown(targetDate) {
       const countdownElement = document.getElementById("countdown");
       function updateCountdown() {
-          const now = new Date().getTime();
-          const distance = targetDate - now;
-          
-          if (distance < 0) {
-              countdownElement.innerHTML = "Lancé !";
-              clearInterval(interval);
-              return;
-          }
-          
-          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-          
-          countdownElement.innerHTML = days + "j " + hours + "h " + minutes + "m " + seconds + "s ";
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+        
+        if (distance < 0) {
+          countdownElement.innerHTML = "Lancé !";
+          clearInterval(interval);
+          return;
+        }
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        countdownElement.innerHTML = days + "j " + hours + "h " + minutes + "m " + seconds + "s ";
       }
       
       updateCountdown();
       const interval = setInterval(updateCountdown, 1000);
-  }
-  
-  document.addEventListener("DOMContentLoaded", () => {
+    }
+    
+    document.addEventListener("DOMContentLoaded", () => {
       changeLanguage();
       const launchDate = new Date("December 31, 2025 00:00:00").getTime();
       startCountdown(launchDate);
-  });
-</script>
+    });
+  </script>
 
 </body>
 </html>
-
-
