@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Phantom Test - Mainnet</title>
+  <!-- Chargement de Solana Web3.js -->
+  <script src="https://unpkg.com/@solana/web3.js@1.70.0/lib/index.iife.js"></script>
+</head>
+<body style="background: #111; color: white; text-align:center; font-family: sans-serif;">
+
+  <h1>Test Phantom sur Mainnet</h1>
+  <p id="status">Statut : non connecté</p>
+  <button id="connectBtn">Connecter Phantom</button>
+
+  <script>
+    // Vérification basique : Phantom est-il présent ?
+    function isPhantomInstalled() {
+      return window.solana && window.solana.isPhantom;
+    }
+
+    async function connectPhantom() {
+      if (!isPhantomInstalled()) {
+        document.getElementById("status").innerText = "Phantom n'est pas installé !";
+        alert("Veuillez installer Phantom pour continuer.");
+        return;
+      }
+
+      try {
+        // Demande de connexion
+        const resp = await window.solana.connect();
+        console.log("Connecté avec l'adresse :", resp.publicKey.toString());
+        document.getElementById("status").innerText = "Connecté : " + resp.publicKey.toString();
+
+        // Connexion à Mainnet
+        const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('mainnet-beta'));
+        // Récupérer le solde
+        const balanceLamports = await connection.getBalance(resp.publicKey);
+        const balanceSOL = balanceLamports / solanaWeb3.LAMPORTS_PER_SOL;
+        document.getElementById("status").innerText += " | Solde : " + balanceSOL.toFixed(4) + " SOL";
+
+      } catch (err) {
+        console.error("Erreur connexion Phantom :", err);
+        alert("La connexion a échoué.\n\n" 
+          + "Si vous avez déjà refusé l'autorisation, ouvrez Phantom, " 
+          + "allez dans Paramètres → Connexions, et réautorisez ce site.");
+      }
+    }
+
+    document.getElementById("connectBtn").addEventListener("click", connectPhantom);
+  </script>
+</body>
+</html>
