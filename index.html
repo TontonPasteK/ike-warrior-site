@@ -291,7 +291,11 @@
         try {
           const response = await window.solana.connect();
           console.log("Connecté à Phantom :", response.publicKey.toString());
-          document.getElementById("wallet-address").innerText = "Votre portefeuille : " + response.publicKey.toString();
+          // Création d'une connexion à Solana (ici Devnet ; pour Mainnet, remplacer par 'mainnet-beta')
+          const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('devnet'));
+          const balanceLamports = await connection.getBalance(response.publicKey);
+          const balanceSOL = balanceLamports / solanaWeb3.LAMPORTS_PER_SOL;
+          document.getElementById("wallet-address").innerText = "Votre portefeuille : " + response.publicKey.toString() + " (Solde : " + balanceSOL.toFixed(2) + " SOL)";
         } catch (err) {
           console.error("Erreur de connexion :", err);
           alert("La connexion au portefeuille a échoué.");
