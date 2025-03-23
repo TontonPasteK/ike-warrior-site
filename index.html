@@ -295,10 +295,17 @@
           const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('devnet'));
           const balanceLamports = await connection.getBalance(response.publicKey);
           const balanceSOL = balanceLamports / solanaWeb3.LAMPORTS_PER_SOL;
-          document.getElementById("wallet-address").innerText = "Votre portefeuille : " + response.publicKey.toString() + " (Solde : " + balanceSOL.toFixed(2) + " SOL)";
+          document.getElementById("wallet-address").innerText = "Votre portefeuille : " 
+            + response.publicKey.toString() 
+            + " (Solde : " 
+            + balanceSOL.toFixed(2) 
+            + " SOL)";
         } catch (err) {
           console.error("Erreur de connexion :", err);
-          alert("La connexion au portefeuille a échoué.");
+          // Ajout d'un message expliquant comment réautoriser le site si la demande est refusée
+          alert("La connexion au portefeuille a échoué.\n\n" 
+            + "Si vous avez refusé l'autorisation, ouvrez Phantom, " 
+            + "allez dans Paramètres > Connexions, et réautorisez ce site.");
         }
       } else {
         alert("Veuillez installer Phantom Wallet pour continuer.");
