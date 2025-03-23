@@ -211,6 +211,12 @@
     </select>
   </div>
 
+  <!-- Module de connexion au portefeuille Phantom -->
+  <div style="margin: 20px auto; width: 80%; text-align: center;">
+    <button id="connectWalletBtn" class="button">Connecter mon portefeuille</button>
+    <p id="wallet-address" style="font-size: 1.2rem; margin-top: 10px;"></p>
+  </div>
+
   <!-- Contenu principal -->
   <div class="wrapper">
     <h1 id="title">🚀 IKE WARRIOR - ANTI-RUG COIN 🛡️</h1>
@@ -279,6 +285,23 @@
   </div>
 
   <script>
+    // Fonction de connexion au portefeuille Phantom
+    async function connectWallet() {
+      if (window.solana && window.solana.isPhantom) {
+        try {
+          const response = await window.solana.connect();
+          console.log("Connecté à Phantom :", response.publicKey.toString());
+          document.getElementById("wallet-address").innerText = "Votre portefeuille : " + response.publicKey.toString();
+        } catch (err) {
+          console.error("Erreur de connexion :", err);
+          alert("La connexion au portefeuille a échoué.");
+        }
+      } else {
+        alert("Veuillez installer Phantom Wallet pour continuer.");
+      }
+    }
+    document.getElementById("connectWalletBtn").addEventListener("click", connectWallet);
+
     // Objet de traductions pour la page principale
     const translations = {
       fr: {
