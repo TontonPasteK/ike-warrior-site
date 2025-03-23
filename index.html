@@ -449,6 +449,18 @@
       const launchDate = new Date("December 31, 2025 00:00:00").getTime();
       startCountdown(launchDate);
     });
+
+// Par exemple, un appel à votre backend
+fetch('https://ike-warrior-backend.onrender.com/api/register?ref=AFF123')
+  .then(response => response.json())
+  .then(data => {
+    console.log('Réponse du backend:', data);
+  })
+  .catch(err => console.error('Erreur:', err));
+</script>
+</body>
+</html>
+
   </script>
 </body>
 </html>
