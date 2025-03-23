@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Affiliés - IKE WARRIOR</title>
+  <style>
+    body {
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #FFD700;
+    }
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 80%;
+    }
+    table, th, td {
+      border: 1px solid #444;
+    }
+    th, td {
+      padding: 10px;
+    }
+    th {
+      background: #222;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dashboard Affiliés</h1>
+  <div id="stats">
+    <p>Chargement des statistiques...</p>
+  </div>
+
+  <script>
+    // Remplacez 'http://localhost:3000' par l'URL de votre serveur backend si déployé
+    const apiBaseUrl = 'http://localhost:3000';
+
+    async function fetchStats() {
+      try {
+        const response = await fetch(`${apiBaseUrl}/api/stats`);
+        const data = await response.json();
+        displayStats(data);
+      } catch (error) {
+        console.error("Erreur lors de la récupération des statistiques:", error);
+        document.getElementById("stats").innerText = "Erreur lors du chargement des statistiques.";
+      }
+    }
+
+    function displayStats(data) {
+      const statsDiv = document.getElementById("stats");
+      statsDiv.innerHTML = `
+        <p>Total d'affiliés : ${data.totalAffiliates}</p>
+        <p>Total de filleuls : ${data.totalFilleuls}</p>
+        <h2>Détails par affilié :</h2>
+      `;
+
+      // Créer un tableau
+      let tableHTML = '<table><tr><th>Code d\'affiliation</th><th>Nombre de filleuls</th><th>Date de création</th></tr>';
+      for (const [ref, info] of Object.entries(data.affiliates)) {
+        tableHTML += `<tr>
+                        <td>${ref}</td>
+                        <td>${info.count}</td>
+                        <td>${new Date(info.createdAt).toLocaleString()}</td>
+                      </tr>`;
+      }
+      tableHTML += '</table>';
+      statsDiv.innerHTML += tableHTML;
+    }
+
+    // Charger les statistiques au chargement de la page
+    document.addEventListener("DOMContentLoaded", fetchStats);
+  </script>
+</body>
+</html>
