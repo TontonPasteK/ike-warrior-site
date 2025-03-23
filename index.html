@@ -449,6 +449,23 @@
       const launchDate = new Date("December 31, 2025 00:00:00").getTime();
       startCountdown(launchDate);
     });
+// Exemple : Enregistrer une affiliation
+fetch('https://ike-warrior-backend.onrender.com/api/register?ref=AFF123')
+  .then(response => response.json())
+  .then(data => {
+    console.log('Réponse du backend:', data);
+    // Vous pouvez afficher data.message ou data.totalForRef sur votre site
+  })
+  .catch(err => console.error('Erreur:', err));
+
+// Exemple : Récupérer les statistiques
+fetch('https://ike-warrior-backend.onrender.com/api/stats')
+  .then(response => response.json())
+  .then(stats => {
+    console.log('Stats:', stats);
+    // Affichez stats.totalAffiliates et stats.totalFilleuls sur votre dashboard
+  })
+  .catch(err => console.error('Erreur:', err));
 
 // Par exemple, un appel à votre backend
 fetch('https://ike-warrior-backend.onrender.com/api/register?ref=AFF123')
