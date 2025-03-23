@@ -34,4 +34,9 @@ app.get('/api/register', (req, res) => {
 // Écoute du serveur
 app.listen(port, () => {
   console.log(`Serveur démarré sur le port ${port}`);
+  fetch('https://ike-warrior-backend.onrender.com/api/register?ref=AFF123')
+  .then(res => res.json())
+  .then(data => console.log('Réponse du backend:', data))
+  .catch(err => console.error('Erreur:', err));
+
 });
