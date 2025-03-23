@@ -3,43 +3,30 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Middleware pour parser le JSON
+// Middleware pour parser le JSON (utile si vous faites des requêtes POST/PUT)
 app.use(express.json());
 
-// Stockage en mémoire pour les affiliés
-const affiliates = {};
+// Route d’accueil
+app.get('/', (req, res) => {
+  res.send('Hello from Ike Warrior Backend!');
+});
 
-// Endpoint pour enregistrer une référence d'affiliation
+// Route d’exemple
+app.get('/api/hello', (req, res) => {
+  res.json({ message: 'Bonjour depuis le backend Ike Warrior!' });
+});
+
+// Nouvelle route /api/register
 app.get('/api/register', (req, res) => {
   const ref = req.query.ref;
   if (!ref) {
-    return res.status(400).json({ error: 'Le paramètre ref est requis' });
+    return res.status(400).json({ error: 'Paramètre ?ref= requis' });
   }
-  
-  // Incrémente ou initialise le compteur pour cet affilié
-  if (!affiliates[ref]) {
-    affiliates[ref] = { count: 1, createdAt: new Date() };
-  } else {
-    affiliates[ref].count += 1;
-  }
-  console.log(`Référence ${ref} enregistrée, total: ${affiliates[ref].count}`);
-  return res.json({ message: `Référence ${ref} enregistrée`, count: affiliates[ref].count });
+  // Ici, placez la logique d’affiliation, de comptage, etc.
+  return res.json({ message: `Référence ${ref} enregistrée` });
 });
 
-// Endpoint pour récupérer les statistiques globales
-app.get('/api/stats', (req, res) => {
-  let totalAffiliates = Object.keys(affiliates).length;
-  let totalFilleuls = 0;
-  Object.values(affiliates).forEach(aff => totalFilleuls += aff.count);
-
-  return res.json({
-    totalAffiliates,
-    totalFilleuls,
-    affiliates
-  });
-});
-
+// Écoute du serveur
 app.listen(port, () => {
-  console.log(`Serveur backend démarré sur le port ${port}`);
+  console.log(`Serveur démarré sur le port ${port}`);
 });
-
